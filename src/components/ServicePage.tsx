@@ -3722,7 +3722,7 @@ export default function ServicePage({ serviceId, setView }: ServicePageProps) {
             <>
               <img
                 key={serviceId}
-                src="/src/assets/images/game_dev_banner_1780470725082.png"
+                src="./src/assets/images/game_dev_banner_1780470725082.png"
                 alt="Game Development Banner"
                 className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-20"
                 style={{ opacity: 0.35 }}

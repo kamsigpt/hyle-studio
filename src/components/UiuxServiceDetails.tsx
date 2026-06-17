@@ -375,7 +375,7 @@ export default function UiuxServiceDetails({ setView, service }: UiuxServiceDeta
       <section className="relative overflow-hidden text-center flex flex-col items-center justify-center -mt-[80px] pt-24 pb-14 md:pt-32 md:pb-18 bg-[#fafafa] min-h-[70vh]">
         {/* Background Image: Slightly softened as requested */}
         <img
-          src="/src/assets/images/uiux_design_banner_1780476532671.png"
+          src="./src/assets/images/uiux_design_banner_1780476532671.png"
           alt="UI/UX Design Background"
           className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-10 filter blur-[1px] scale-102"
           style={{ opacity: 0.18 }}

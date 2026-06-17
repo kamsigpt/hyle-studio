@@ -336,7 +336,7 @@ export default function BrandingServiceDetails({ setView, service }: BrandingSer
       <section className="relative overflow-hidden text-center flex flex-col items-center justify-center -mt-[80px] pt-32 pb-44 md:pt-40 md:pb-56 bg-[#fafafa] min-h-[80vh]">
         {/* Background Image: Brand-specific mint/white 3D creative asset */}
         <img
-          src="/src/assets/images/branding_design_hero_1780514748632.png"
+          src="./src/assets/images/branding_design_hero_1780514748632.png"
           alt="Creative Branding Background"
           className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none z-10 scale-105 blur-[3px]"
           style={{ opacity: 0.7 }}
@@ -436,7 +436,7 @@ export default function BrandingServiceDetails({ setView, service }: BrandingSer
                   {/* Screen Content Showcase */}
                   <div className="relative w-full h-full bg-zinc-900 rounded-lg overflow-hidden border border-zinc-800/50 flex items-center justify-center">
                     <img 
-                      src="/src/assets/images/branding_design_hero_1780514748632.png"
+                      src="./src/assets/images/branding_design_hero_1780514748632.png"
                       alt="Logo Artwork inside Adobe Illustrator design workspace"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
                       referrerPolicy="no-referrer"

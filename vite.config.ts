@@ -3,10 +3,10 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig} from 'vite';
 
-export default defineConfig(() => {
+export default defineConfig(({ command, mode }) => {
   return {
     // Use relative paths in production so it works on any GitHub Pages subpath automatically.
-    base: process.env.NODE_ENV === 'production' ? './' : '/',
+    base: mode === 'production' || command === 'build' ? './' : '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
