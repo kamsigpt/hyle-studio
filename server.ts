@@ -112,7 +112,7 @@ Hyle Studios`;
 Client Name: ${fullName}
 Preferred Work Email: ${companyEmail}
 Services Needed: ${servicesString}
-Estimated Investment Range: ${selectedBudget}
+Estimated Budget Amount: ${selectedBudget}
 
 Project Goals & Brief:
 ${projectBrief}

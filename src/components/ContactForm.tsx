@@ -18,11 +18,6 @@ interface ServiceOption {
   label: string;
 }
 
-interface BudgetOption {
-  id: string;
-  label: string;
-}
-
 interface ContactFormProps {
   setView?: (view: any) => void;
 }
@@ -34,7 +29,7 @@ export default function ContactForm({ setView }: ContactFormProps) {
   
   // Custom interactive selectors
   const [selectedServices, setSelectedServices] = useState<string[]>(["web"]);
-  const [selectedBudget, setSelectedBudget] = useState<string>("$1,000 - $3,000");
+  const [selectedBudget, setSelectedBudget] = useState<string>("");
   
   // Interaction states
   const [submitted, setSubmitted] = useState<boolean>(false);
@@ -47,6 +42,7 @@ export default function ContactForm({ setView }: ContactFormProps) {
     setFullName("");
     setCompanyEmail("");
     setProjectBrief("");
+    setSelectedBudget("");
     setSelectedServices(["web"]);
     if (setView) {
       setView("home");
@@ -59,13 +55,6 @@ export default function ContactForm({ setView }: ContactFormProps) {
     { id: "mobile", label: "Mobile App Dev" },
     { id: "game", label: "Game Development" },
     { id: "branding", label: "Branding & Identity" }
-  ];
-
-  const budgetsList: BudgetOption[] = [
-    { id: "under-1k", label: "Under $1,000" },
-    { id: "mid-1k-3k", label: "$1,000 - $3,000" },
-    { id: "high-3k-10k", label: "$3,000 - $10,000" },
-    { id: "enterprise", label: "$10,000+" }
   ];
 
   const handleToggleService = (id: string) => {
@@ -254,7 +243,7 @@ export default function ContactForm({ setView }: ContactFormProps) {
                     <span className="text-[10px] text-zinc-400 uppercase font-mono block font-extrabold tracking-widest">FOLLOW US</span>
                     <div className="flex items-center gap-4.5 pt-1.5">
                       <a 
-                        href="https://facebook.com" 
+                        href="https://www.facebook.com/share/1KLvZ6R1g3/?mibextid=wwXIfr" 
                         target="_blank" 
                         rel="noreferrer" 
                         title="Facebook" 
@@ -265,7 +254,7 @@ export default function ContactForm({ setView }: ContactFormProps) {
                         </svg>
                       </a>
                       <a 
-                        href="https://instagram.com" 
+                        href="https://www.instagram.com/hyle.studios?igsh=ZnJoYmIyaTN6bXBl&utm_source=qr" 
                         target="_blank" 
                         rel="noreferrer" 
                         title="Instagram" 
@@ -276,7 +265,7 @@ export default function ContactForm({ setView }: ContactFormProps) {
                         </svg>
                       </a>
                       <a 
-                        href="https://wa.me/2349032736331" 
+                        href="https://wa.me/2349039260212" 
                         target="_blank" 
                         rel="noreferrer" 
                         title="WhatsApp" 
@@ -284,17 +273,6 @@ export default function ContactForm({ setView }: ContactFormProps) {
                       >
                         <svg className="w-6.5 h-6.5 fill-current" viewBox="0 0 24 24">
                           <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.966a9.774 9.774 0 00-6.979-2.872C6.034 1.018 1.61 5.387 1.606 10.814c-.001 1.701.452 3.361 1.309 4.814L1.904 20.12l4.743-1.243-.1 1.277z"/>
-                        </svg>
-                      </a>
-                      <a 
-                        href="https://x.com" 
-                        target="_blank" 
-                        rel="noreferrer" 
-                        title="X" 
-                        className="text-zinc-400 hover:text-zinc-900 hover:scale-120 active:scale-95 transition-all duration-200 block"
-                      >
-                        <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                         </svg>
                       </a>
                     </div>
@@ -362,30 +340,19 @@ export default function ContactForm({ setView }: ContactFormProps) {
                 </div>
               </div>
 
-              {/* DYNAMIC ESTIMATED BUDGET CHOICE */}
-              <div className="space-y-2.5">
-                <label className="text-[10px] font-mono tracking-wider text-zinc-400 uppercase font-bold block">
-                  2. ESTIMATED INVESTMENT RANGE
+              {/* ESTIMATED BUDGET AMOUNT INPUT */}
+              <div className="space-y-1.5">
+                <label htmlFor="input-budget" className="text-[10px] font-mono tracking-wider text-zinc-400 uppercase font-bold block">
+                  2. ESTIMATED BUDGET AMOUNT
                 </label>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                  {budgetsList.map((bg) => {
-                    const isSelected = selectedBudget === bg.label;
-                    return (
-                      <button
-                        key={bg.id}
-                        type="button"
-                        onClick={() => setSelectedBudget(bg.label)}
-                        className={`px-3 py-3 rounded-xl border text-xs font-medium text-center transition-all duration-300 cursor-pointer select-none font-sans leading-snug ${
-                          isSelected 
-                            ? "bg-[#ebfaf3] text-[#2ebd73] border-[#2ebd73]" 
-                            : "bg-white hover:bg-zinc-50 text-zinc-650 border-zinc-200"
-                        }`}
-                      >
-                        {bg.label}
-                      </button>
-                    );
-                  })}
-                </div>
+                <input
+                  id="input-budget"
+                  type="text"
+                  value={selectedBudget}
+                  onChange={(e) => setSelectedBudget(e.target.value)}
+                  placeholder="e.g. $2,500 USD"
+                  className="w-full bg-white text-zinc-800 border border-zinc-200 focus:border-[#2ebd73]/70 focus:ring-1 focus:ring-[#2ebd73]/50 rounded-xl px-4 py-3 text-xs focus:outline-none transition-all duration-300 font-sans shadow-2xs"
+                />
               </div>
 
               {/* BASIC TEXT INPUT CREDENTIALS */}
